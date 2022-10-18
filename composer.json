@@ -1,0 +1,22 @@
+{
+    "name": "lokis/mini_cms_sprint",
+    "type": "project",
+    "license": "MTI",
+    "autoload": {
+        "psr-4": {
+            "Lokis\\MiniCmsSprint\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Edis",
+            "email": "47144455+ESat777@users.noreply.github.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "doctrine/orm": "^2.13",
+        "symfony/cache": "^6.1",
+        "doctrine/annotations": "^1.13"
+    }
+}
