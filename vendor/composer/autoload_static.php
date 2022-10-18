@@ -39,9 +39,9 @@ class ComposerStaticInit0f01cc5b9e5c359ae625a7780ae264f1
             'Psr\\Container\\' => 14,
             'Psr\\Cache\\' => 10,
         ),
-        'L' => 
+        'M' => 
         array (
-            'Lokis\\MiniCmsSprint\\' => 20,
+            'Model\\' => 6,
         ),
         'D' => 
         array (
@@ -120,9 +120,9 @@ class ComposerStaticInit0f01cc5b9e5c359ae625a7780ae264f1
         array (
             0 => __DIR__ . '/..' . '/psr/cache/src',
         ),
-        'Lokis\\MiniCmsSprint\\' => 
+        'Model\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/src',
+            0 => __DIR__ . '/../..' . '/src/models',
         ),
         'Doctrine\\Persistence\\' => 
         array (
