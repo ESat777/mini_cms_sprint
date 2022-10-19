@@ -3,7 +3,7 @@
         'name' => 'lokis/mini_cms_sprint',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'fbf4c2a74aefea08e1ffbc9a9b691e18f0390c02',
+        'reference' => 'e7d259fbd220edd80d56129e48e841c00e621366',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -121,7 +121,7 @@
         'lokis/mini_cms_sprint' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'fbf4c2a74aefea08e1ffbc9a9b691e18f0390c02',
+            'reference' => 'e7d259fbd220edd80d56129e48e841c00e621366',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
