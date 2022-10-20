@@ -47,7 +47,7 @@ include_once "bootstrap.php";
 </header>
 
   <main>
-    <div class="container p-3 d-flex justify-content-center"  style="min-height:80.7vh; justify-content: end;">
+    <div class="container p-3 d-flex justify-content-center"  style="min-height:82.7vh; justify-content: end;">
         <?php
         if (!isset($_GET['id'])){
           $page = $entityManager->find('Model\Page',  1);

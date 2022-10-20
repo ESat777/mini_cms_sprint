@@ -6,8 +6,6 @@ include_once "bootstrap.php";
 $appPathArray = explode('\\', getcwd());
 $appName = strtolower(end($appPathArray));
 
-$errorMsg = '';
-
 // Logout
 session_start();
 if (isset($_GET['action']) and $_GET['action'] == 'logout') {
@@ -21,10 +19,10 @@ if (isset($_GET['action']) and $_GET['action'] == 'logout') {
 
 // Login
 if (isset($_POST['login']) && !empty($_POST['username']) && !empty($_POST['password'])) {
-  if ($_POST['username'] == 'Gurgutis' && $_POST['password'] == '1234') {
+  if ($_POST['username'] == 'Patestuojam' && $_POST['password'] == '1234') {
     $_SESSION['logged_in'] = true;
     $_SESSION['timeout'] = time();
-    $_SESSION['username'] = 'Gurgutis';
+    $_SESSION['username'] = 'Patestuojam';
   } else {
     print('<div style="color:red">Wrong username or password</div>');
   }
@@ -48,28 +46,55 @@ if (isset($_GET['delete'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
           rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-          crossorigin="anonymous">    
-  <!-- <link rel="stylesheet" href="css/main.css"> -->
+          crossorigin="anonymous"> 
+
   <title>Admin page</title>
 </head>
 
-<body style="font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', 'sans-serif';">
-<?php
+<body style="font-family:'Calibri', 'Trebuchet MS', 'sans-serif';">
+
+
+  <?php
   if (!isset($_SESSION['logged_in'])) {
-    echo '<div class="login-form-placeholder">
-          <form action="" method="post">
-              <input type="text" name="username" placeholder="username = Gurgutis" required autofocus></br>
-              <input type="password" name="password" placeholder="password = 1234" required><br>
-              <button class="btn login-btn" type="submit" name="login">Login</button>
-          </form>
-        </div>';
+   echo '<nav class="navbar navbar-expand-lg navbar-light bg-info">
+          <div class="container-fluid">
+              <a class="navbar-brand" >
+
+                  <h1 style="color: white ;"><b>Mini CMS</b></h1>
+                  <a style="font-size: 30px; color: #6cb4df; font-weight:700; margin-right: 50px;">Login Page</a>
+              </a>
+              <div class="top-nav-placeholder">
+                  <a class="btn btn-primary" href="./home" target="_blank">View website</a>
+              </div>
+          </div>
+      </nav>';
+   echo  '<div class="container p-4 " >
+            <div class="edit-page-form-placeholder d-flex justify-content-center align-items-center" style="height:82vh;">
+                <div class="login-form-placeholder">
+                  <form action="" method="post" style="width: 30vw">
+                      <div class="form-group">
+                          <label style="font-size: 25px" for="exampleInputEmail1">User name</label>
+                          <input type="text" name="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required autofocus placeholder="Patestuojam">
+                          <small id="emailHelp" class="form-text text-muted"></small>
+                      </div>
+                      <div class="form-group">
+                        <label style="font-size: 25px" for="exampleInputPassword1">Password</label>
+                        <input type="password" class="form-control" name="password" id="exampleInputPassword1"  placeholder="1234" required>
+                      </div>
+                      <div style="text-align: center">
+                        <button type="submit" style="width:25vw; " name="login" class="btn btn-primary mt-4">Login</button>
+                      </div>
+                    </form>
+                </div>
+            </div>
+          </div>';
   } else {
   ?>
-  
+
     <nav class="navbar navbar-expand-lg navbar-light bg-info">
         <div class="container-fluid">
             <a class="navbar-brand" >
-                <!-- <img src="dbsm3.png" style="height: 60px" alt="icon"> -->
+
                 <h1 style="color: white ;"><b>Mini CMS</b></h1>
                 <a style="font-size: 30px; color: #6cb4df; font-weight:700; margin-right: 50px;">Admin panel</a>
             </a>
@@ -79,8 +104,8 @@ if (isset($_GET['delete'])) {
                 <a class="btn btn-danger" href="?action=logout">Logout</a>
             </div>
         </div>
-  </nav>
-       <div class="container p-4" style="min-height:80.7vh;">
+    </nav>
+    <div class="container p-4" style="min-height:80.7vh;">
          <div class="row "  style="margin-left: auto; margin-right: auto;">
           <div class="col-md-10" >
             <div class="table-placeholder">
@@ -89,8 +114,8 @@ if (isset($_GET['delete'])) {
                     echo '<table class="table table-info table-striped table-bordered border-dark">
                       <thead>
                         <tr>
-                          <th scope="col" style="width: 70%;">Title</th>
-                          <th scope="col" style="width: 20%; text-align:center">Action</th>
+                          <th scope="col" style="width: 70%; font-size:25px">Page Title</th>
+                          <th scope="col" style="width: 20%; font-size:25px; text-align:center">Action</th>
                         </tr>
                       </thead>
                       <tbody>';
@@ -103,7 +128,7 @@ if (isset($_GET['delete'])) {
                               <a class="btn btn-danger" href="?delete=' . $page->getId() . '">Delete</a>';
                             }
                             echo '<tr>
-                              <td>' . $page->getPageName() . '</td>
+                              <td style="font-size: 20px">' . $page->getPageName() . '</td>
                               <td style="text-align:center">
                                   ' . $buttons . '
                               </td>
@@ -112,8 +137,8 @@ if (isset($_GET['delete'])) {
                           echo '</tbody></table>';
                   ?>
             </div>
-            </div> 
-            <div class="col-md-2 "> 
+          </div> 
+          <div class="col-md-2 "> 
                    <a class="btn btn-success" href="?add">Add Page</a>
                             <?php if (isset($_SESSION['message'])) { ?>
                           <div class="alert alert-<?= $_SESSION['message_type']; ?> alert-dismissible fade show mt-3" role="alert">
@@ -121,11 +146,9 @@ if (isset($_GET['delete'])) {
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                             <?php unset($_SESSION['message']);?>
                           </div>
-                          <?php 
-                         } 
-                ?>
-            </div> 
-         
+                          <?php } ?>
+          </div>
+           
       </div>
     </div>
   <?php } ?>
