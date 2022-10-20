@@ -33,7 +33,10 @@ if (isset($_GET['delete'])) {
   $user = $entityManager->find('Model\Page', $_GET['delete']);
   $entityManager->remove($user);
   $entityManager->flush();
+  $_SESSION['message'] = 'Removed successfuly';
+  $_SESSION['message_type'] = 'success';
   header('Location: /' . $appName . '/admin');
+  exit();
 }
 
 ?>
@@ -139,7 +142,7 @@ if (isset($_GET['delete'])) {
             </div>
           </div> 
           <div class="col-md-2 "> 
-                   <a class="btn btn-success" href="?add">Add Page</a>
+                   <a class="btn btn-success" style="width: 12vw" href="?add">Add Page</a>
                             <?php if (isset($_SESSION['message'])) { ?>
                           <div class="alert alert-<?= $_SESSION['message_type']; ?> alert-dismissible fade show mt-3" role="alert">
                             <?= $_SESSION['message'] ?>
@@ -148,7 +151,7 @@ if (isset($_GET['delete'])) {
                           </div>
                           <?php } ?>
           </div>
-           
+
       </div>
     </div>
   <?php } ?>

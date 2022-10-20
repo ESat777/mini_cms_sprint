@@ -1,5 +1,6 @@
 <?php
 include_once "bootstrap.php";
+session_start();
 
 $appPathArray = explode('\\', getcwd());
 $appName = strtolower(end($appPathArray));
