@@ -1,5 +1,11 @@
 <?php
 include_once "bootstrap.php";
+$page = $entityManager->find('Model\Page',  isset($_GET['id']) ? $_GET['id'] : 1);
+
+$uri = explode('?', $_SERVER['REQUEST_URI']);
+
+if(!$page)
+   header('Location: ' . $uri[0]);
 ?>
 
 <!DOCTYPE html>
@@ -26,14 +32,9 @@ include_once "bootstrap.php";
      </a>
       <div class="d-flex justify-content-end">
         <?php
-            if (!isset($_GET['id'])){
-                $page = $entityManager->find('Model\Page',  1);
-                echo '<h2 style="color: #6cb4df; font-weight: bold; margin-right: 20vw">' . $page->getPageName() . '</h2>';
-            } else {
-                $page = $entityManager->find('Model\Page',  $_GET['id']);
-                echo '<h2 style="color: #6cb4df; font-weight: bold; margin-right: 20vw">' . $page->getPageName() . '</h2>';
-            }
 
+            echo '<h2 style="color: #6cb4df; font-weight: bold; margin-right: 20vw">' . $page->getPageName() . '</h2>';
+            
             $pages = $entityManager->getRepository('Model\Page')->findAll();
 
             foreach ($pages as $page) {

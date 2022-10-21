@@ -6,13 +6,6 @@ session_start();
 
 $appPathArray = explode('\\', getcwd());
 $appName = strtolower(end($appPathArray));
-$errorMsg = '';
-
-// Cancel edit page
-if (isset($_POST['cancel'])) {
-  unset($_GET['add']);
-  header('Location: /' . $appName . '/admin');
-}
 
 // Add page
 if (isset($_POST['add_page'])) {  
@@ -21,11 +14,11 @@ if (isset($_POST['add_page'])) {
     $page->setPageContent($_POST['page_content']);
     $entityManager->persist($page);
     $entityManager->flush();
-    $_SESSION['message'] = 'Page created';
+    $_SESSION['message'] = 'Page Created';
     $_SESSION['message_type'] = 'success';
     header('Location: /' . $appName . '/admin');
     exit();
-  
+
 }
 ?>
 
