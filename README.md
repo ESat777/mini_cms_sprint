@@ -8,6 +8,8 @@ Content Management System
 1. Create page .
 2. Update page name and content .
 3. Delete page.
+4. Login to admin panel.
+5. Mini web site.
 
 #### About project
 
