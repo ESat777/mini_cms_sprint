@@ -39,7 +39,7 @@ Content Management System
 
 ![alt text](https://github.com/ESat777/mini_cms_sprint/blob/main/Pictures/P5.png)
 
-3. Clone the repository files `https://github.com/ESat777/mini_cms_sprint`
+3. Clone the repository files `https://github.com/ESat777/mini_cms_sprint.git`
 
 
 4. Cloned project folder paste to xammp/htdocs.
